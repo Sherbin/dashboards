@@ -13,30 +13,32 @@
     body { margin: 0; padding: 0; }
 
     /* CSS Custom Properties for instant theme switching */
+    /* Dark theme matches Confluence dark: #1F1F21 */
     :root {
-      --bg: #0F0F0F;
-      --card-bg: #1F1F1F;
-      --card-border: #2E2E2E;
+      --bg: #1F1F21;
+      --card-bg: rgba(255,255,255,0.05);
+      --card-border: rgba(255,255,255,0.1);
       --text: #F2F2F2;
       --text-muted: #8C8C8C;
       --text-dim: #636363;
-      --hover-bg: #2E2E2E;
-      --progress-bg: #2E2E2E;
-      --ring-offset: #1F1F1F;
-      --non-sprint-bg: #2E2E2E;
+      --hover-bg: rgba(255,255,255,0.1);
+      --progress-bg: rgba(255,255,255,0.1);
+      --ring-offset: #1F1F21;
+      --non-sprint-bg: rgba(255,255,255,0.15);
     }
 
+    /* Light theme matches Confluence light: #FFF */
     :root.light {
-      --bg: #F9F9F9;
-      --card-bg: #FFFFFF;
-      --card-border: #EBEBEB;
+      --bg: #FFFFFF;
+      --card-bg: rgba(0,0,0,0.03);
+      --card-border: rgba(0,0,0,0.08);
       --text: #0F0F0F;
       --text-muted: #636363;
       --text-dim: #9C9C9C;
-      --hover-bg: #F2F2F2;
-      --progress-bg: #EBEBEB;
+      --hover-bg: rgba(0,0,0,0.05);
+      --progress-bg: rgba(0,0,0,0.08);
       --ring-offset: #FFFFFF;
-      --non-sprint-bg: #DBDBDB;
+      --non-sprint-bg: rgba(0,0,0,0.12);
     }
 
     /* Today's date highlight */
@@ -280,17 +282,6 @@
       return (
         <div className="min-h-screen p-6" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
           <div className="max-w-full mx-auto">
-            {/* Header with theme toggle */}
-            <div className="mb-6 flex justify-between items-center">
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="px-3 py-1.5 rounded-lg text-sm"
-                style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
-              >
-                {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
-              </button>
-            </div>
-            
             {/* Current Status Panel */}
             {quarterProgress && currentSprint && (
               <div
