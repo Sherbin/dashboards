@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь спринтов 2026</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    const { useState, useMemo, useEffect, Fragment } = React;
+
+    const sprintData = [
+      { sprint: "26Q1S1", start: "2026-01-05", end: "2026-01-16", quarter: "Q1" },
+      { sprint: "26Q1S2", start: "2026-01-19", end: "2026-01-30", quarter: "Q1" },
+      { sprint: "26Q1S3", start: "2026-02-02", end: "2026-02-13", quarter: "Q1" },
+      { sprint: "26Q1S4", start: "2026-02-16", end: "2026-02-27", quarter: "Q1" },
+      { sprint: "26Q1S5", start: "2026-03-02", end: "2026-03-13", quarter: "Q1" },
+      { sprint: "26Q1S6", start: "2026-03-16", end: "2026-03-27", quarter: "Q1" },
+      { sprint: "26Q2S1", start: "2026-03-30", end: "2026-04-10", quarter: "Q2" },
+      { sprint: "26Q2S2", start: "2026-04-13", end: "2026-04-24", quarter: "Q2" },
+      { sprint: "26Q2S3", start: "2026-04-27", end: "2026-05-08", quarter: "Q2" },
+      { sprint: "26Q2S4", start: "2026-05-11", end: "2026-05-22", quarter: "Q2" },
+      { sprint: "26Q2S5", start: "2026-05-25", end: "2026-06-05", quarter: "Q2" },
+      { sprint: "26Q2S6", start: "2026-06-08", end: "2026-06-19", quarter: "Q2" },
+      { sprint: "26Q2S7", start: "2026-06-22", end: "2026-07-03", quarter: "Q2" },
+      { sprint: "26Q3S1", start: "2026-07-06", end: "2026-07-17", quarter: "Q3" },
+      { sprint: "26Q3S2", start: "2026-07-20", end: "2026-07-31", quarter: "Q3" },
+      { sprint: "26Q3S3", start: "2026-08-03", end: "2026-08-14", quarter: "Q3" },
+      { sprint: "26Q3S4", start: "2026-08-17", end: "2026-08-28", quarter: "Q3" },
+      { sprint: "26Q3S5", start: "2026-08-31", end: "2026-09-11", quarter: "Q3" },
+      { sprint: "26Q3S6", start: "2026-09-14", end: "2026-09-25", quarter: "Q3" },
+      { sprint: "26Q4S1", start: "2026-09-28", end: "2026-10-09", quarter: "Q4" },
+      { sprint: "26Q4S2", start: "2026-10-12", end: "2026-10-23", quarter: "Q4" },
+      { sprint: "26Q4S3", start: "2026-10-26", end: "2026-11-06", quarter: "Q4" },
+      { sprint: "26Q4S4", start: "2026-11-09", end: "2026-11-20", quarter: "Q4" },
+      { sprint: "26Q4S5", start: "2026-11-23", end: "2026-12-04", quarter: "Q4" },
+      { sprint: "26Q4S6", start: "2026-12-07", end: "2026-12-18", quarter: "Q4" },
+      { sprint: "26Q4S7", start: "2026-12-21", end: "2026-12-31", quarter: "Q4" },
+    ];
+
+    const quarterColors = {
+      Q1: { 
+        months: ["#5B9CF6", "#3179F5", "#2962FF"],
+        current: "#1E53E5",
+        border: "#143EB2",
+        label: "Q1", 
+        full: "1 квартал" 
+      },
+      Q2: { 
+        months: ["#42BD7F", "#22AB67", "#089950"],
+        current: "#068043",
+        border: "#056636",
+        label: "Q2", 
+        full: "2 квартал" 
+      },
+      Q3: { 
+        months: ["#FFA726", "#FF9800", "#FB8C00"],
+        current: "#F57C00",
+        border: "#E65100",
+        label: "Q3", 
+        full: "3 квартал" 
+      },
+      Q4: { 
+        months: ["#f06292", "#ec407a", "#e91e63"],
+        current: "#D81B60",
+        border: "#AD1457",
+        label: "Q4", 
+        full: "4 квартал" 
+      },
+      none: { 
+        months: ["#4A4A4A"],
+        current: "#3D3D3D",
+        border: "#2E2E2E",
+        label: "", 
+        full: "Вне спринта" 
+      }
+    };
+
+    const themes = {
+      dark: {
+        bg: "#0F0F0F",
+        cardBg: "#1F1F1F",
+        cardBorder: "#2E2E2E",
+        text: "#F2F2F2",
+        textMuted: "#8C8C8C",
+        textDim: "#636363",
+        inputBg: "#2E2E2E",
+        inputBorder: "#4A4A4A",
+        hoverBg: "#2E2E2E",
+        progressBg: "#2E2E2E",
+        ringOffset: "#1F1F1F",
+        nonSprintBg: "#2E2E2E",
+      },
+      light: {
+        bg: "#F9F9F9",
+        cardBg: "#FFFFFF",
+        cardBorder: "#EBEBEB",
+        text: "#0F0F0F",
+        textMuted: "#636363",
+        textDim: "#9C9C9C",
+        inputBg: "#F2F2F2",
+        inputBorder: "#DBDBDB",
+        hoverBg: "#F2F2F2",
+        progressBg: "#EBEBEB",
+        ringOffset: "#FFFFFF",
+        nonSprintBg: "#DBDBDB",
+      }
+    };
+
+    const monthToQuarterPosition = {
+      0: 0, 1: 1, 2: 2,
+      3: 0, 4: 1, 5: 2,
+      6: 0, 7: 1, 8: 2,
+      9: 0, 10: 1, 11: 2
+    };
+
+    const months = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"];
+    const weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+
+    function SprintHeatmap() {
+      const [hoveredDay, setHoveredDay] = useState(null);
+      const [selectedSprint, setSelectedSprint] = useState(null);
+      
+      // Use real today's date
+      const today = useMemo(() => new Date(), []);
+      
+      const [theme, setTheme] = useState(() => {
+        if (typeof window !== 'undefined' && window.matchMedia) {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        return 'dark';
+      });
+      
+      useEffect(() => {
+        if (typeof window === 'undefined' || !window.matchMedia) return;
+        
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleChange = (e) => setTheme(e.matches ? 'dark' : 'light');
+        
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+      }, []);
+      
+      const t = themes[theme];
+
+      const { weeks, currentSprint, quarterProgress } = useMemo(() => {
+        const startDate = new Date(Date.UTC(2026, 0, 1));
+        const endDate = new Date(Date.UTC(2026, 11, 31));
+        
+        const dayMap = new Map();
+        sprintData.forEach(s => {
+          const [startYear, startMonth, startDay] = s.start.split('-').map(Number);
+          const [endYear, endMonth, endDay] = s.end.split('-').map(Number);
+          const start = new Date(Date.UTC(startYear, startMonth - 1, startDay));
+          const end = new Date(Date.UTC(endYear, endMonth - 1, endDay));
+          
+          for (let d = new Date(start); d <= end; d.setUTCDate(d.getUTCDate() + 1)) {
+            const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
+            dayMap.set(key, s);
+          }
+        });
+        
+        const todayStr = `${today.getUTCFullYear()}-${String(today.getUTCMonth() + 1).padStart(2, '0')}-${String(today.getUTCDate()).padStart(2, '0')}`;
+        const currentSprint = dayMap.get(todayStr) || null;
+        
+        let quarterProgress = null;
+        if (currentSprint) {
+          const q = currentSprint.quarter;
+          const quarterSprints = sprintData.filter(s => s.quarter === q);
+          const currentIdx = quarterSprints.findIndex(s => s.sprint === currentSprint.sprint);
+          
+          const [qsYear, qsMonth, qsDay] = quarterSprints[0].start.split('-').map(Number);
+          const [qeYear, qeMonth, qeDay] = quarterSprints[quarterSprints.length - 1].end.split('-').map(Number);
+          const quarterStart = new Date(Date.UTC(qsYear, qsMonth - 1, qsDay));
+          const quarterEnd = new Date(Date.UTC(qeYear, qeMonth - 1, qeDay));
+          
+          const totalDays = Math.ceil((quarterEnd - quarterStart) / (1000 * 60 * 60 * 24));
+          const daysPassed = Math.ceil((today - quarterStart) / (1000 * 60 * 60 * 24));
+          const daysLeft = Math.ceil((quarterEnd - today) / (1000 * 60 * 60 * 24));
+          
+          quarterProgress = {
+            quarter: q,
+            currentSprintNum: currentIdx + 1,
+            totalSprints: quarterSprints.length,
+            daysPassed: Math.max(0, daysPassed),
+            daysLeft: Math.max(0, daysLeft),
+            totalDays,
+            percentage: Math.min(100, Math.max(0, (daysPassed / totalDays) * 100))
+          };
+        }
+        
+        const weeks = [];
+        let currentWeek = [];
+        
+        const firstDay = new Date(startDate);
+        const dayOfWeek = firstDay.getUTCDay();
+        const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+        firstDay.setUTCDate(firstDay.getUTCDate() + mondayOffset);
+        
+        for (let d = new Date(firstDay); d <= endDate || currentWeek.length > 0; d.setUTCDate(d.getUTCDate() + 1)) {
+          const dateStr = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
+          const isInYear = d >= startDate && d <= endDate;
+          
+          currentWeek.push({
+            date: new Date(d),
+            dateStr,
+            sprint: isInYear ? dayMap.get(dateStr) : null,
+            isInYear,
+            isToday: dateStr === todayStr,
+            dayOfWeek: d.getUTCDay(),
+            month: d.getUTCMonth()
+          });
+          
+          if (currentWeek.length === 7) {
+            weeks.push(currentWeek);
+            currentWeek = [];
+            if (d > endDate) break;
+          }
+        }
+        
+        return { weeks, currentSprint, quarterProgress };
+      }, [today]);
+      
+      const getDayColor = (day) => {
+        if (!day.isInYear) return "transparent";
+        if (!day.sprint) return t.nonSprintBg;
+        
+        const colors = quarterColors[day.sprint.quarter];
+        if (day.isToday) return colors.current;
+        if (selectedSprint && day.sprint.sprint === selectedSprint) return colors.current;
+        
+        const monthPos = monthToQuarterPosition[day.month];
+        return colors.months[monthPos] || colors.months[0];
+      };
+      
+      const getWeekSprintStart = (week) => {
+        for (const day of week) {
+          if (day.isInYear && day.sprint && day.dateStr === day.sprint.start) {
+            return day.sprint;
+          }
+        }
+        return null;
+      };
+      
+      const formatDate = (date) => {
+        return `${date.getUTCDate()} ${months[date.getUTCMonth()]} ${date.getUTCFullYear()}`;
+      };
+
+      const monthLabels = useMemo(() => {
+        const labels = [];
+        let lastMonth = -1;
+        weeks.forEach((week, weekIdx) => {
+          const firstDayInYear = week.find(d => d.isInYear);
+          if (firstDayInYear && firstDayInYear.month !== lastMonth) {
+            labels.push({ month: firstDayInYear.month, weekIdx });
+            lastMonth = firstDayInYear.month;
+          }
+        });
+        return labels;
+      }, [weeks]);
+
+      return (
+        <div className="min-h-screen p-6 transition-colors duration-200" style={{ backgroundColor: t.bg, color: t.text }}>
+          <div className="max-w-full mx-auto">
+            {/* Header with theme toggle */}
+            <div className="mb-6 flex justify-between items-center">
+              <h1 className="text-2xl font-bold">Календарь спринтов 2026</h1>
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="px-3 py-1.5 rounded-lg text-sm transition-colors"
+                style={{ backgroundColor: t.cardBg, border: `1px solid ${t.cardBorder}` }}
+              >
+                {theme === 'dark' ? '☀️ Светлая' : '🌙 Тёмная'}
+              </button>
+            </div>
+            
+            {/* Current Status Panel */}
+            {quarterProgress && currentSprint && (
+              <div 
+                className="rounded-xl p-4 mb-6 transition-colors"
+                style={{ backgroundColor: t.cardBg, border: `1px solid ${t.cardBorder}` }}
+              >
+                <div className="flex flex-wrap gap-6 items-center justify-between">
+                  <div>
+                    <div className="text-xs mb-1" style={{ color: t.textMuted }}>Сегодня</div>
+                    <div className="text-lg font-bold">{formatDate(today)}</div>
+                  </div>
+                  
+                  <div>
+                    <div className="text-xs mb-1" style={{ color: t.textMuted }}>Текущий спринт</div>
+                    <div className="text-lg font-bold" style={{ color: quarterColors[currentSprint.quarter].months[1] }}>
+                      {currentSprint.sprint}
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1 min-w-48">
+                    <div className="flex justify-between text-xs mb-1">
+                      <span style={{ color: t.textMuted }}>{quarterColors[quarterProgress.quarter].full}</span>
+                      <span className="font-medium">{quarterProgress.percentage.toFixed(0)}%</span>
+                    </div>
+                    <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: t.progressBg }}>
+                      <div 
+                        className="h-full rounded-full transition-all duration-500"
+                        style={{ 
+                          width: `${quarterProgress.percentage}%`,
+                          backgroundColor: quarterColors[quarterProgress.quarter].months[1]
+                        }}
+                      />
+                    </div>
+                    <div className="flex justify-between text-xs mt-1" style={{ color: t.textDim }}>
+                      <span>Спринт {quarterProgress.currentSprintNum} из {quarterProgress.totalSprints}</span>
+                      <span>Осталось {quarterProgress.daysLeft} дн.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Legend */}
+            <div className="flex flex-wrap gap-4 mb-4 text-sm">
+              {Object.entries(quarterColors).filter(([k]) => k !== 'none').map(([key, val]) => (
+                <div key={key} className="flex items-center gap-2">
+                  <div className="flex gap-0.5">
+                    {val.months.map((color, i) => (
+                      <div 
+                        key={i}
+                        className="w-3 h-3 rounded-sm"
+                        style={{ backgroundColor: color }}
+                      />
+                    ))}
+                  </div>
+                  <span style={{ color: t.textMuted }}>{val.full}</span>
+                </div>
+              ))}
+              <div className="flex items-center gap-2">
+                <div 
+                  className="w-3 h-3 rounded-sm"
+                  style={{ backgroundColor: t.nonSprintBg }}
+                />
+                <span style={{ color: t.textMuted }}>Вне спринта</span>
+              </div>
+            </div>
+            
+            {/* Heatmap */}
+            <div 
+              className="rounded-xl p-4 overflow-x-auto transition-colors"
+              style={{ backgroundColor: t.cardBg, border: `1px solid ${t.cardBorder}` }}
+            >
+              <div className="flex flex-col items-center">
+                {/* Month labels */}
+                <div className="flex mb-2" style={{ marginLeft: '28px' }}>
+                  {monthLabels.map(({ month, weekIdx }, i) => {
+                    const nextWeekIdx = monthLabels[i + 1]?.weekIdx || weeks.length;
+                    const width = (nextWeekIdx - weekIdx) * 14;
+                    return (
+                      <div 
+                        key={month} 
+                        className="text-xs flex-shrink-0"
+                        style={{ width: `${width}px`, color: t.textMuted }}
+                      >
+                        {months[month]}
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                {/* Grid */}
+                <div className="flex">
+                  {/* Weekday labels */}
+                  <div className="flex flex-col gap-0.5 mr-2 text-xs flex-shrink-0" style={{ color: t.textMuted }}>
+                    {weekdays.map((day, i) => (
+                      <div key={day} className="h-3 flex items-center justify-end pr-1" style={{ width: '24px' }}>
+                        {i % 2 === 0 ? day : ''}
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Weeks grid */}
+                  <div className="flex gap-0.5">
+                    {weeks.map((week, weekIdx) => {
+                      const sprintStart = getWeekSprintStart(week);
+                      return (
+                        <Fragment key={weekIdx}>
+                          {sprintStart && (
+                            <div 
+                              className="w-px my-0.5"
+                              style={{ 
+                                backgroundColor: quarterColors[sprintStart.quarter].months[1],
+                                opacity: 0.4,
+                                minHeight: '100%'
+                              }}
+                            />
+                          )}
+                          <div className="flex flex-col gap-0.5">
+                            {week.map((day, dayIdx) => {
+                              return (
+                                <div
+                                  key={dayIdx}
+                                  className="w-3 h-3 rounded-sm cursor-pointer transition-all duration-150"
+                                  style={{ 
+                                    backgroundColor: getDayColor(day),
+                                    opacity: day.isInYear ? 1 : 0,
+                                    boxShadow: day.isToday 
+                                      ? `0 0 0 2px ${t.ringOffset}, 0 0 0 4px ${t.text}` 
+                                      : selectedSprint && day.sprint?.sprint === selectedSprint 
+                                        ? `0 0 0 1px ${t.text}` 
+                                        : 'none',
+                                  }}
+                                  onMouseEnter={() => setHoveredDay(day)}
+                                  onMouseLeave={() => setHoveredDay(null)}
+                                  onClick={() => {
+                                    if (day.sprint) {
+                                      setSelectedSprint(selectedSprint === day.sprint.sprint ? null : day.sprint.sprint);
+                                    }
+                                  }}
+                                />
+                              );
+                            })}
+                          </div>
+                        </Fragment>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Tooltip */}
+            {hoveredDay && hoveredDay.isInYear && (
+              <div 
+                className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-3 shadow-xl z-50"
+                style={{ backgroundColor: t.cardBg, border: `1px solid ${t.cardBorder}` }}
+              >
+                <div className="font-medium">{formatDate(hoveredDay.date)}</div>
+                {hoveredDay.sprint ? (
+                  <div className="text-sm" style={{ color: quarterColors[hoveredDay.sprint.quarter].months[1] }}>
+                    {hoveredDay.sprint.sprint} • {weekdays[hoveredDay.dayOfWeek === 0 ? 6 : hoveredDay.dayOfWeek - 1]}
+                  </div>
+                ) : (
+                  <div className="text-sm" style={{ color: t.textMuted }}>Вне спринта</div>
+                )}
+                {hoveredDay.isToday && (
+                  <div className="text-xs mt-1" style={{ color: quarterColors.Q3.months[1] }}>← Сегодня</div>
+                )}
+              </div>
+            )}
+            
+            {/* Sprint List - 4 columns */}
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {['Q1', 'Q2', 'Q3', 'Q4'].map(quarter => (
+                <div 
+                  key={quarter} 
+                  className="rounded-lg p-3 transition-colors"
+                  style={{ backgroundColor: t.cardBg, border: `1px solid ${t.cardBorder}` }}
+                >
+                  <h3 
+                    className="font-bold mb-2 pb-2 text-sm"
+                    style={{ color: quarterColors[quarter].months[1], borderBottom: `1px solid ${t.cardBorder}` }}
+                  >
+                    {quarterColors[quarter].full}
+                  </h3>
+                  <div className="space-y-1">
+                    {sprintData.filter(s => s.quarter === quarter).map(sprint => {
+                      const isCurrentSprint = currentSprint?.sprint === sprint.sprint;
+                      return (
+                        <div
+                          key={sprint.sprint}
+                          className="text-xs p-1.5 rounded cursor-pointer transition-colors"
+                          style={{ 
+                            backgroundColor: isCurrentSprint || selectedSprint === sprint.sprint ? t.hoverBg : 'transparent',
+                          }}
+                          onMouseEnter={(e) => { if (!isCurrentSprint && selectedSprint !== sprint.sprint) e.currentTarget.style.backgroundColor = t.hoverBg; }}
+                          onMouseLeave={(e) => { if (!isCurrentSprint && selectedSprint !== sprint.sprint) e.currentTarget.style.backgroundColor = 'transparent'; }}
+                          onClick={() => setSelectedSprint(sprint.sprint === selectedSprint ? null : sprint.sprint)}
+                        >
+                          <div className="flex justify-between items-center">
+                            <span className="font-medium">{sprint.sprint}</span>
+                            {isCurrentSprint && (
+                              <span 
+                                className="text-xs px-1.5 py-0.5 rounded-full"
+                                style={{ backgroundColor: t.progressBg }}
+                              >●</span>
+                            )}
+                          </div>
+                          <div style={{ color: t.textMuted }} className="mt-0.5">
+                            {new Date(sprint.start + 'T00:00:00Z').getUTCDate()} {months[new Date(sprint.start + 'T00:00:00Z').getUTCMonth()]} — {new Date(sprint.end + 'T00:00:00Z').getUTCDate()} {months[new Date(sprint.end + 'T00:00:00Z').getUTCMonth()]}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Footer */}
+            <div className="mt-8 text-center text-xs" style={{ color: t.textDim }}>
+              TradingView Sprint Calendar • 2026
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<SprintHeatmap />);
+  </script>
+</body>
+</html>
