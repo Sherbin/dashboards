@@ -1,0 +1,782 @@
+<style>
+  /* TradingView Sprint Calendar 2026 - Confluence Compatible */
+  .tv-sprint-calendar { box-sizing: border-box !important; margin: 0 !important; padding: 24px !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; background: transparent !important; color: #0F0F0F !important; line-height: 1.4 !important; }
+  .tv-sprint-calendar *, .tv-sprint-calendar *::before, .tv-sprint-calendar *::after { box-sizing: border-box !important; }
+
+  /* Dark theme support */
+  [data-color-mode="dark"] .tv-sprint-calendar,
+  [data-theme="dark"] .tv-sprint-calendar,
+  .dark .tv-sprint-calendar { color: #F2F2F2 !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-card,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-card,
+  .dark .tv-sprint-calendar .tv-sprint-card { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.1) !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-text-muted,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-text-muted,
+  .dark .tv-sprint-calendar .tv-sprint-text-muted { color: #8C8C8C !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-text-dim,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-text-dim,
+  .dark .tv-sprint-calendar .tv-sprint-text-dim { color: #636363 !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-progress-bg,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-progress-bg,
+  .dark .tv-sprint-calendar .tv-sprint-progress-bg { background: rgba(255,255,255,0.1) !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-non-sprint,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-non-sprint,
+  .dark .tv-sprint-calendar .tv-sprint-non-sprint { background: rgba(255,255,255,0.15) !important; }
+
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-today-cell,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-today-cell,
+  .dark .tv-sprint-calendar .tv-sprint-today-cell { box-shadow: 0 0 0 2px #F2F2F2, 0 4px 8px rgba(0,0,0,0.4) !important; }
+
+  .tv-sprint-calendar .tv-sprint-header { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 24px !important; }
+  .tv-sprint-calendar .tv-sprint-title { font-size: 24px !important; font-weight: bold !important; margin: 0 !important; }
+
+  .tv-sprint-calendar .tv-sprint-card { background: rgba(0,0,0,0.03) !important; border: 1px solid rgba(0,0,0,0.08) !important; border-radius: 12px !important; padding: 16px !important; margin-bottom: 24px !important; }
+  .tv-sprint-calendar .tv-sprint-text-muted { color: #636363 !important; }
+  .tv-sprint-calendar .tv-sprint-text-dim { color: #9C9C9C !important; }
+  .tv-sprint-calendar .tv-sprint-progress-bg { background: rgba(0,0,0,0.08) !important; }
+
+  .tv-sprint-calendar .tv-sprint-status-panel { display: flex !important; flex-wrap: wrap !important; gap: 24px !important; align-items: center !important; justify-content: space-between !important; }
+  .tv-sprint-calendar .tv-sprint-status-label { font-size: 12px !important; margin-bottom: 4px !important; }
+  .tv-sprint-calendar .tv-sprint-status-value { font-size: 18px !important; font-weight: bold !important; }
+  .tv-sprint-calendar .tv-sprint-progress-container { flex: 1 !important; min-width: 200px !important; }
+  .tv-sprint-calendar .tv-sprint-progress-header { display: flex !important; justify-content: space-between !important; font-size: 12px !important; margin-bottom: 4px !important; }
+  .tv-sprint-calendar .tv-sprint-progress-bar { height: 8px !important; border-radius: 4px !important; overflow: hidden !important; }
+  .tv-sprint-calendar .tv-sprint-progress-fill { height: 100% !important; border-radius: 4px !important; }
+  .tv-sprint-calendar .tv-sprint-progress-footer { display: flex !important; justify-content: space-between !important; font-size: 12px !important; margin-top: 4px !important; }
+
+  .tv-sprint-calendar .tv-sprint-legend { display: flex !important; flex-wrap: wrap !important; gap: 16px !important; margin-bottom: 16px !important; font-size: 14px !important; }
+  .tv-sprint-calendar .tv-sprint-legend-item { display: flex !important; align-items: center !important; gap: 8px !important; }
+  .tv-sprint-calendar .tv-sprint-legend-colors { display: flex !important; gap: 2px !important; }
+  .tv-sprint-calendar .tv-sprint-legend-color { width: 12px !important; height: 12px !important; border-radius: 2px !important; }
+
+  .tv-sprint-calendar .tv-sprint-heatmap-card { border-radius: 12px !important; padding: 16px !important; overflow-x: auto !important; }
+  .tv-sprint-calendar .tv-sprint-heatmap-container { display: flex !important; flex-direction: column !important; align-items: center !important; }
+  .tv-sprint-calendar .tv-sprint-month-labels { display: flex !important; margin-left: 28px !important; margin-bottom: 8px !important; }
+  .tv-sprint-calendar .tv-sprint-month-label { font-size: 12px !important; flex-shrink: 0 !important; }
+  .tv-sprint-calendar .tv-sprint-grid-container { display: flex !important; }
+  .tv-sprint-calendar .tv-sprint-weekday-labels { display: flex !important; flex-direction: column !important; gap: 2px !important; margin-right: 8px !important; font-size: 12px !important; flex-shrink: 0 !important; }
+  .tv-sprint-calendar .tv-sprint-weekday-label { height: 12px !important; width: 24px !important; display: flex !important; align-items: center !important; justify-content: flex-end !important; padding-right: 4px !important; }
+  .tv-sprint-calendar .tv-sprint-weeks-grid { display: flex !important; gap: 2px !important; }
+  .tv-sprint-calendar .tv-sprint-week-column { display: flex !important; flex-direction: column !important; gap: 2px !important; }
+  .tv-sprint-calendar .tv-sprint-sep { width: 1px !important; margin: 2px 0 !important; opacity: 0.4 !important; }
+  .tv-sprint-calendar .tv-sprint-day-cell { width: 12px !important; height: 12px !important; border-radius: 2px !important; }
+  .tv-sprint-calendar .tv-sprint-today-cell { box-shadow: 0 0 0 2px #0F0F0F, 0 4px 8px rgba(0,0,0,0.4) !important; }
+  .tv-sprint-calendar .tv-sprint-non-sprint { background: rgba(0,0,0,0.12) !important; }
+
+  .tv-sprint-calendar .tv-sprint-list { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 12px !important; margin-top: 24px !important; }
+  @media (max-width: 900px) { .tv-sprint-calendar .tv-sprint-list { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 500px) { .tv-sprint-calendar .tv-sprint-list { grid-template-columns: 1fr !important; } }
+  .tv-sprint-calendar .tv-sprint-quarter-card { border-radius: 8px !important; padding: 12px !important; }
+  .tv-sprint-calendar .tv-sprint-quarter-title { font-weight: bold !important; font-size: 14px !important; margin-bottom: 8px !important; padding-bottom: 8px !important; border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
+  [data-color-mode="dark"] .tv-sprint-calendar .tv-sprint-quarter-title,
+  [data-theme="dark"] .tv-sprint-calendar .tv-sprint-quarter-title,
+  .dark .tv-sprint-calendar .tv-sprint-quarter-title { border-bottom-color: rgba(255,255,255,0.1) !important; }
+  .tv-sprint-calendar .tv-sprint-item { font-size: 12px !important; padding: 6px !important; border-radius: 4px !important; margin-bottom: 4px !important; }
+  .tv-sprint-calendar .tv-sprint-item-header { display: flex !important; justify-content: space-between !important; align-items: center !important; }
+  .tv-sprint-calendar .tv-sprint-name { font-weight: 500 !important; }
+  .tv-sprint-calendar .tv-sprint-current-badge { padding: 2px 6px !important; border-radius: 9999px !important; font-size: 10px !important; }
+  .tv-sprint-calendar .tv-sprint-dates { margin-top: 2px !important; }
+  .tv-sprint-calendar .tv-sprint-footer { margin-top: 32px !important; text-align: center !important; font-size: 12px !important; }
+</style>
+<div class="tv-sprint-calendar">
+  <div class="tv-sprint-card">
+    <div class="tv-sprint-status-panel">
+      <div>
+        <div class="tv-sprint-status-label tv-sprint-text-muted">Today</div>
+        <div class="tv-sprint-status-value">5 Feb 2026</div>
+      </div>
+      <div>
+        <div class="tv-sprint-status-label tv-sprint-text-muted">Current Sprint</div>
+        <div class="tv-sprint-status-value" style="color:#3179F5">26Q1S3</div>
+      </div>
+      <div class="tv-sprint-progress-container">
+        <div class="tv-sprint-progress-header">
+          <span class="tv-sprint-text-muted">Q1</span>
+          <span style="font-weight:500">37%</span>
+        </div>
+        <div class="tv-sprint-progress-bar tv-sprint-progress-bg">
+          <div class="tv-sprint-progress-fill" style="width:37%;background:#3179F5"></div>
+        </div>
+        <div class="tv-sprint-progress-footer tv-sprint-text-dim">
+          <span>Sprint 3 of 6</span>
+          <span>50 days left</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tv-sprint-legend">
+    <div class="tv-sprint-legend-item">
+      <div class="tv-sprint-legend-colors">
+        <div class="tv-sprint-legend-color" style="background:#5B9CF6"></div>
+        <div class="tv-sprint-legend-color" style="background:#3179F5"></div>
+        <div class="tv-sprint-legend-color" style="background:#2962FF"></div>
+      </div>
+      <span class="tv-sprint-text-muted">Q1</span>
+    </div>
+    <div class="tv-sprint-legend-item">
+      <div class="tv-sprint-legend-colors">
+        <div class="tv-sprint-legend-color" style="background:#42BD7F"></div>
+        <div class="tv-sprint-legend-color" style="background:#22AB67"></div>
+        <div class="tv-sprint-legend-color" style="background:#089950"></div>
+      </div>
+      <span class="tv-sprint-text-muted">Q2</span>
+    </div>
+    <div class="tv-sprint-legend-item">
+      <div class="tv-sprint-legend-colors">
+        <div class="tv-sprint-legend-color" style="background:#FFA726"></div>
+        <div class="tv-sprint-legend-color" style="background:#FF9800"></div>
+        <div class="tv-sprint-legend-color" style="background:#FB8C00"></div>
+      </div>
+      <span class="tv-sprint-text-muted">Q3</span>
+    </div>
+    <div class="tv-sprint-legend-item">
+      <div class="tv-sprint-legend-colors">
+        <div class="tv-sprint-legend-color" style="background:#f06292"></div>
+        <div class="tv-sprint-legend-color" style="background:#ec407a"></div>
+        <div class="tv-sprint-legend-color" style="background:#e91e63"></div>
+      </div>
+      <span class="tv-sprint-text-muted">Q4</span>
+    </div>
+    <div class="tv-sprint-legend-item">
+      <div class="tv-sprint-legend-color tv-sprint-non-sprint"></div>
+      <span class="tv-sprint-text-muted">Out of Sprint</span>
+    </div>
+  </div>
+
+  <div class="tv-sprint-card tv-sprint-heatmap-card">
+    <div class="tv-sprint-heatmap-container">
+      <div class="tv-sprint-month-labels">
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Jan</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Feb</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Mar</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Apr</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:70px">May</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Jun</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Jul</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Aug</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Sep</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Oct</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Nov</div>
+        <div class="tv-sprint-month-label tv-sprint-text-muted" style="width:56px">Dec</div>
+      </div>
+      <div class="tv-sprint-grid-container">
+        <div class="tv-sprint-weekday-labels tv-sprint-text-muted">
+          <div class="tv-sprint-weekday-label">Mon</div>
+          <div class="tv-sprint-weekday-label"></div>
+          <div class="tv-sprint-weekday-label">Wed</div>
+          <div class="tv-sprint-weekday-label"></div>
+          <div class="tv-sprint-weekday-label">Fri</div>
+          <div class="tv-sprint-weekday-label"></div>
+          <div class="tv-sprint-weekday-label">Sun</div>
+        </div>
+        <div class="tv-sprint-weeks-grid">
+          <!-- Week 1: Dec 29 - Jan 4 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 2: Jan 5-11 (26Q1S1 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+          </div>
+          <!-- Week 3: Jan 12-18 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 4: Jan 19-25 (26Q1S2 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+          </div>
+          <!-- Week 5: Jan 26 - Feb 1 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell" style="background:#5B9CF6"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 6: Feb 2-8 (26Q1S3 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell tv-sprint-today-cell" style="background:#1E53E5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+          </div>
+          <!-- Week 7: Feb 9-15 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 8: Feb 16-22 (26Q1S4 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+          </div>
+          <!-- Week 9: Feb 23 - Mar 1 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell" style="background:#3179F5"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 10: Mar 2-8 (26Q1S5 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+          </div>
+          <!-- Week 11: Mar 9-15 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 12: Mar 16-22 (26Q1S6 start) -->
+          <div class="tv-sprint-sep" style="background:#3179F5"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+          </div>
+          <!-- Week 13: Mar 23-29 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell" style="background:#2962FF"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 14: Mar 30 - Apr 5 (26Q2S1 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+          </div>
+          <!-- Week 15: Apr 6-12 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 16: Apr 13-19 (26Q2S2 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+          </div>
+          <!-- Week 17: Apr 20-26 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 18: Apr 27 - May 3 (26Q2S3 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#42BD7F"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+          </div>
+          <!-- Week 19: May 4-10 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 20: May 11-17 (26Q2S4 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+          </div>
+          <!-- Week 21: May 18-24 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 22: May 25-31 (26Q2S5 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#22AB67"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+          </div>
+          <!-- Week 23: Jun 1-7 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 24: Jun 8-14 (26Q2S6 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+          </div>
+          <!-- Week 25: Jun 15-21 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 26: Jun 22-28 (26Q2S7 start) -->
+          <div class="tv-sprint-sep" style="background:#22AB67"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+          </div>
+          <!-- Week 27: Jun 29 - Jul 5 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell" style="background:#089950"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 28: Jul 6-12 (26Q3S1 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+          </div>
+          <!-- Week 29: Jul 13-19 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 30: Jul 20-26 (26Q3S2 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+          </div>
+          <!-- Week 31: Jul 27 - Aug 2 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell" style="background:#FFA726"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+          </div>
+          <!-- Week 32: Aug 3-9 (26Q3S3 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+          </div>
+          <!-- Week 33: Aug 10-16 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 34: Aug 17-23 (26Q3S4 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+          </div>
+          <!-- Week 35: Aug 24-30 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 36: Aug 31 - Sep 6 (26Q3S5 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FF9800"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+          </div>
+          <!-- Week 37: Sep 7-13 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 38: Sep 14-20 (26Q3S6 start) -->
+          <div class="tv-sprint-sep" style="background:#FF9800"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+          </div>
+          <!-- Week 39: Sep 21-27 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 40: Sep 28 - Oct 4 (26Q4S1 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#FB8C00"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+          </div>
+          <!-- Week 41: Oct 5-11 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 42: Oct 12-18 (26Q4S2 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+          </div>
+          <!-- Week 43: Oct 19-25 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 44: Oct 26 - Nov 1 (26Q4S3 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#f06292"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+          </div>
+          <!-- Week 45: Nov 2-8 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 46: Nov 9-15 (26Q4S4 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+          </div>
+          <!-- Week 47: Nov 16-22 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 48: Nov 23-29 (26Q4S5 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+          </div>
+          <!-- Week 49: Nov 30 - Dec 6 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#ec407a"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 50: Dec 7-13 (26Q4S6 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+          </div>
+          <!-- Week 51: Dec 14-20 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+            <div class="tv-sprint-day-cell tv-sprint-non-sprint"></div>
+          </div>
+          <!-- Week 52: Dec 21-27 (26Q4S7 start) -->
+          <div class="tv-sprint-sep" style="background:#ec407a"></div>
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+          </div>
+          <!-- Week 53: Dec 28-31 -->
+          <div class="tv-sprint-week-column">
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="background:#e91e63"></div>
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+            <div class="tv-sprint-day-cell" style="opacity:0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tv-sprint-list">
+    <div class="tv-sprint-card tv-sprint-quarter-card">
+      <div class="tv-sprint-quarter-title" style="color:#3179F5">Q1</div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S1</span></div><div class="tv-sprint-dates tv-sprint-text-muted">5 Jan — 16 Jan</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S2</span></div><div class="tv-sprint-dates tv-sprint-text-muted">19 Jan — 30 Jan</div></div>
+      <div class="tv-sprint-item" style="background:rgba(0,0,0,0.05)"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S3</span><span class="tv-sprint-current-badge tv-sprint-progress-bg">●</span></div><div class="tv-sprint-dates tv-sprint-text-muted">2 Feb — 13 Feb</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S4</span></div><div class="tv-sprint-dates tv-sprint-text-muted">16 Feb — 27 Feb</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S5</span></div><div class="tv-sprint-dates tv-sprint-text-muted">2 Mar — 13 Mar</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q1S6</span></div><div class="tv-sprint-dates tv-sprint-text-muted">16 Mar — 27 Mar</div></div>
+    </div>
+    <div class="tv-sprint-card tv-sprint-quarter-card">
+      <div class="tv-sprint-quarter-title" style="color:#22AB67">Q2</div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S1</span></div><div class="tv-sprint-dates tv-sprint-text-muted">30 Mar — 10 Apr</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S2</span></div><div class="tv-sprint-dates tv-sprint-text-muted">13 Apr — 24 Apr</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S3</span></div><div class="tv-sprint-dates tv-sprint-text-muted">27 Apr — 8 May</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S4</span></div><div class="tv-sprint-dates tv-sprint-text-muted">11 May — 22 May</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S5</span></div><div class="tv-sprint-dates tv-sprint-text-muted">25 May — 5 Jun</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S6</span></div><div class="tv-sprint-dates tv-sprint-text-muted">8 Jun — 19 Jun</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q2S7</span></div><div class="tv-sprint-dates tv-sprint-text-muted">22 Jun — 3 Jul</div></div>
+    </div>
+    <div class="tv-sprint-card tv-sprint-quarter-card">
+      <div class="tv-sprint-quarter-title" style="color:#FF9800">Q3</div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S1</span></div><div class="tv-sprint-dates tv-sprint-text-muted">6 Jul — 17 Jul</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S2</span></div><div class="tv-sprint-dates tv-sprint-text-muted">20 Jul — 31 Jul</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S3</span></div><div class="tv-sprint-dates tv-sprint-text-muted">3 Aug — 14 Aug</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S4</span></div><div class="tv-sprint-dates tv-sprint-text-muted">17 Aug — 28 Aug</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S5</span></div><div class="tv-sprint-dates tv-sprint-text-muted">31 Aug — 11 Sep</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q3S6</span></div><div class="tv-sprint-dates tv-sprint-text-muted">14 Sep — 25 Sep</div></div>
+    </div>
+    <div class="tv-sprint-card tv-sprint-quarter-card">
+      <div class="tv-sprint-quarter-title" style="color:#ec407a">Q4</div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S1</span></div><div class="tv-sprint-dates tv-sprint-text-muted">28 Sep — 9 Oct</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S2</span></div><div class="tv-sprint-dates tv-sprint-text-muted">12 Oct — 23 Oct</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S3</span></div><div class="tv-sprint-dates tv-sprint-text-muted">26 Oct — 6 Nov</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S4</span></div><div class="tv-sprint-dates tv-sprint-text-muted">9 Nov — 20 Nov</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S5</span></div><div class="tv-sprint-dates tv-sprint-text-muted">23 Nov — 4 Dec</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S6</span></div><div class="tv-sprint-dates tv-sprint-text-muted">7 Dec — 18 Dec</div></div>
+      <div class="tv-sprint-item"><div class="tv-sprint-item-header"><span class="tv-sprint-name">26Q4S7</span></div><div class="tv-sprint-dates tv-sprint-text-muted">21 Dec — 31 Dec</div></div>
+    </div>
+  </div>
+
+  <div class="tv-sprint-footer tv-sprint-text-dim">TradingView Sprint Calendar • 2026</div>
+</div>
