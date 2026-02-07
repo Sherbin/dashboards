@@ -27,6 +27,7 @@
       --non-sprint-bg: rgba(255,255,255,0.15);
       --weekend-bg: rgba(255,255,255,0.08);
       --past-day-bg: #3D3D3D;
+      --calendar-bg: #1F1F21;
     }
 
     /* Light theme matches Confluence light: #FFF */
@@ -43,6 +44,7 @@
       --non-sprint-bg: rgba(0,0,0,0.12);
       --weekend-bg: rgba(0,0,0,0.06);
       --past-day-bg: #D0D0D0;
+      --calendar-bg: #FFFFFF;
     }
 
     /* Today's date highlight */
@@ -201,7 +203,7 @@
     function SprintHeatmap() {
       const [hoveredDay, setHoveredDay] = useState(null);
       const [selectedSprint, setSelectedSprint] = useState(null);
-      const [selectedOffices, setSelectedOffices] = useState([]);
+      const [selectedOffices, setSelectedOffices] = useState(allOffices);
 
       const toggleOffice = (office) => {
         setSelectedOffices(prev => {
@@ -443,7 +445,7 @@
             {quarterProgress && currentSprint && (
               <div
                 className="rounded-xl p-4 mb-6"
-                style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
+                style={{ backgroundColor: 'var(--calendar-bg)', border: '1px solid var(--card-border)' }}
               >
                 <div className="flex flex-wrap gap-6 items-center justify-between">
                   <div>
@@ -520,161 +522,185 @@
             {/* Heatmap */}
             <div
               className="rounded-xl p-4 overflow-x-auto"
-              style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
+              style={{ backgroundColor: 'var(--calendar-bg)', border: '1px solid var(--card-border)' }}
             >
-              <div className="flex flex-col">
-                {/* Top row: Holidays title | weekday spacer | month labels */}
-                <div className="flex mb-1 items-end">
-                  <div className="flex-shrink-0 mr-3" style={{ minWidth: 4 * CELL_SIZE + 3 * CELL_GAP }}>
-                    <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Holidays</span>
-                  </div>
-                  <div className="flex-shrink-0 mr-2" style={{ width: 28 }} />
-                  <div className="flex">
-                    {monthLabels.map(({ month, weekIdx }, i) => {
-                      const nextWeekIdx = monthLabels[i + 1]?.weekIdx || weeks.length;
-                      const width = (nextWeekIdx - weekIdx) * CELL_STEP;
+              <div className="flex justify-center">
+                <div className="inline-flex gap-4 items-start">
+                  {/* Office selector - sticky on left */}
+                  <div style={{
+                    position: 'sticky',
+                    left: '16px',
+                    zIndex: 10,
+                    paddingRight: '24px',
+                    alignSelf: 'stretch',
+                    background: 'linear-gradient(to right, var(--calendar-bg) 0%, var(--calendar-bg) 85%, transparent 100%)'
+                  }}>
+                    {(() => {
+                      const selectorSize = 4 * CELL_SIZE + 3 * CELL_GAP; // 70px square
+                      // Reference day: hovered day > today
+                      const refDay = (hoveredDay && hoveredDay.isInYear) ? hoveredDay : todayDay;
+                      // Sprint color from reference day's sprint
+                      const refSprint = refDay?.sprint
+                        || (selectedSprint ? sprintData.find(s => s.sprint === selectedSprint) : null)
+                        || currentSprint;
+                      const selectorQuarter = refSprint?.quarter || 'Q1';
+                      const selectorColors = quarterColors[selectorQuarter];
+                      const selectorSprintIdx = refSprint
+                        ? sprintData.filter(s => s.quarter === selectorQuarter).findIndex(s => s.sprint === refSprint.sprint)
+                        : 3;
+                      const selectorColor = selectorColors.shades[selectorSprintIdx >= 0 ? selectorSprintIdx : 3] || selectorColors.shades[3];
+                      // Per-office stripe color based on holiday status of refDay
+                      const getStripeColor = (office) => {
+                        if (!refDay || !refDay.sprint || refDay.dayOfWeek === 0 || refDay.dayOfWeek === 6) {
+                          return 'var(--weekend-bg)';
+                        }
+                        const holidays = holidayMap[refDay.dateStr];
+                        const isHoliday = holidays && holidays[office];
+                        return isHoliday ? 'var(--weekend-bg)' : selectorColor;
+                      };
                       return (
-                        <div
-                          key={month}
-                          className="text-xs flex-shrink-0"
-                          style={{ width: `${width}px`, color: 'var(--text-muted)' }}
-                        >
-                          {months[month]}
+                        <div className="flex flex-col">
+                          <div className="text-xs mb-1" style={{ color: 'var(--text-dim)', paddingLeft: 2 }}>Holidays</div>
+                          <div className="rounded flex flex-col cursor-pointer" style={{
+                            width: selectorSize,
+                            height: selectorSize,
+                            overflow: 'hidden',
+                            border: '1px solid var(--card-border)',
+                            gap: 0,
+                            backgroundColor: 'var(--calendar-bg)',
+                          }}>
+                            {allOffices.map(office => {
+                              const isActive = selectedOffices.includes(office);
+                              const stripeColor = getStripeColor(office);
+
+                              // Determine background color based on state
+                              let backgroundColor;
+                              let textColor;
+                              let textShadow = 'none';
+
+                              if (!isActive) {
+                                // Невыбранный — светло-серый
+                                backgroundColor = 'var(--weekend-bg)';
+                                textColor = 'var(--text-muted)';
+                              } else if (stripeColor === 'var(--weekend-bg)') {
+                                // Выбранный но нерабочий (holiday/weekend) — темно-серый
+                                backgroundColor = 'var(--past-day-bg)';
+                                textColor = 'var(--text-muted)';
+                              } else {
+                                // Выбранный и рабочий — цвет спринта
+                                backgroundColor = stripeColor;
+                                textColor = '#fff';
+                                textShadow = '0 0 2px rgba(0,0,0,0.6)';
+                              }
+
+                              return (
+                                <div
+                                  key={office}
+                                  className="flex items-center justify-center"
+                                  style={{
+                                    flex: 1,
+                                    background: backgroundColor,
+                                    opacity: 1,
+                                    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
+                                  }}
+                                  onClick={() => toggleOffice(office)}
+                                >
+                                  <span style={{
+                                    fontSize: '9px',
+                                    lineHeight: 1,
+                                    color: textColor,
+                                    textShadow: textShadow,
+                                    userSelect: 'none',
+                                    transition: 'color 0.3s ease-in-out, text-shadow 0.3s ease-in-out',
+                                  }}>
+                                    {officeFlags[office]} {officeLabels[office]}
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
                       );
-                    })}
+                    })()}
                   </div>
-                </div>
 
-                {/* Bottom row: selector+legend | weekday labels | heatmap grid */}
-                <div className="flex">
-                  {/* Office selector cell — square cell, stripes reflect holiday status of hovered/today day */}
-                  {(() => {
-                    const selectorSize = 4 * CELL_SIZE + 3 * CELL_GAP; // 70px square
-                    // Reference day: hovered day > today
-                    const refDay = (hoveredDay && hoveredDay.isInYear) ? hoveredDay : todayDay;
-                    // Sprint color from reference day's sprint
-                    const refSprint = refDay?.sprint
-                      || (selectedSprint ? sprintData.find(s => s.sprint === selectedSprint) : null)
-                      || currentSprint;
-                    const selectorQuarter = refSprint?.quarter || 'Q1';
-                    const selectorColors = quarterColors[selectorQuarter];
-                    const selectorSprintIdx = refSprint
-                      ? sprintData.filter(s => s.quarter === selectorQuarter).findIndex(s => s.sprint === refSprint.sprint)
-                      : 3;
-                    const selectorColor = selectorColors.shades[selectorSprintIdx >= 0 ? selectorSprintIdx : 3] || selectorColors.shades[3];
-                    // Per-office stripe color based on holiday status of refDay
-                    const getStripeColor = (office) => {
-                      if (!refDay || !refDay.sprint || refDay.dayOfWeek === 0 || refDay.dayOfWeek === 6) {
-                        return 'var(--weekend-bg)';
-                      }
-                      const holidays = holidayMap[refDay.dateStr];
-                      const isHoliday = holidays && holidays[office];
-                      return isHoliday ? 'var(--weekend-bg)' : selectorColor;
-                    };
-                    return (
-                      <div className="flex-shrink-0 mr-3 flex items-start" style={{ minWidth: selectorSize }}>
-                        <div className="rounded flex flex-col cursor-pointer" style={{
-                          width: selectorSize,
-                          height: selectorSize,
-                          overflow: 'hidden',
-                          border: '1px solid var(--card-border)',
-                          gap: CELL_GAP,
-                        }}>
-                          {allOffices.map(office => {
-                            const isActive = selectedOffices.includes(office);
-                            const stripeColor = getStripeColor(office);
-                            const isSprintColored = isActive && stripeColor !== 'var(--weekend-bg)';
+                  {/* Calendar container */}
+                  <div>
+                    <div className="flex flex-col">
+                      {/* Month labels */}
+                      <div className="flex mb-1 items-end">
+                        <div className="flex-shrink-0 mr-2" style={{ width: 28 }} />
+                        <div className="flex">
+                          {monthLabels.map(({ month, weekIdx }, i) => {
+                            const nextWeekIdx = monthLabels[i + 1]?.weekIdx || weeks.length;
+                            const width = (nextWeekIdx - weekIdx) * CELL_STEP;
                             return (
                               <div
-                                key={office}
-                                className="flex items-center justify-center transition-all duration-150"
-                                style={{
-                                  flex: 1,
-                                  background: isActive ? stripeColor : 'var(--hover-bg)',
-                                  opacity: isActive ? 1 : 0.35,
-                                }}
-                                onClick={() => toggleOffice(office)}
+                                key={month}
+                                className="text-xs flex-shrink-0"
+                                style={{ width: `${width}px`, color: 'var(--text-muted)' }}
                               >
-                                <span style={{
-                                  fontSize: '9px',
-                                  lineHeight: 1,
-                                  color: isSprintColored ? '#fff' : 'var(--text-muted)',
-                                  textShadow: isSprintColored ? '0 0 2px rgba(0,0,0,0.6)' : 'none',
-                                  userSelect: 'none',
-                                }}>
-                                  {officeFlags[office]} {officeLabels[office]}
-                                </span>
+                                {months[month]}
                               </div>
                             );
                           })}
                         </div>
                       </div>
-                    );
-                  })()}
 
-                  {/* Weekday labels */}
-                  <div className="flex flex-col mr-2 text-xs flex-shrink-0" style={{ color: 'var(--text-muted)', gap: CELL_GAP }}>
-                    {weekdays.map((day, i) => {
-                      if (!showWeekends && i >= 5) return null;
-                      return (
-                        <div key={day} className="flex items-center justify-end pr-1" style={{ height: CELL_SIZE, width: 28 }}>
-                          {day}
+                      {/* Weekday labels and grid */}
+                      <div className="flex">
+                        {/* Weekday labels */}
+                        <div className="flex flex-col mr-2 text-xs flex-shrink-0" style={{ color: 'var(--text-muted)', gap: CELL_GAP }}>
+                          {weekdays.map((day, i) => {
+                            if (!showWeekends && i >= 5) return null;
+                            return (
+                              <div key={day} className="flex items-center justify-end pr-1" style={{ height: CELL_SIZE, width: 28 }}>
+                                {day}
+                              </div>
+                            );
+                          })}
                         </div>
-                      );
-                    })}
-                  </div>
 
-                  {/* Weeks grid */}
-                  <div className="flex" style={{ gap: CELL_GAP }}>
-                    {weeks.map((week, weekIdx) => {
-                      const sprintStart = getWeekSprintStart(week);
-                      return (
-                        <Fragment key={weekIdx}>
-                          {sprintStart && (
-                            <div
-                              className="w-px"
-                              style={{
-                                backgroundColor: quarterColors[sprintStart.quarter].border,
-                                opacity: 0.4,
-                                minHeight: '100%',
-                                marginTop: 1,
-                                marginBottom: 1,
-                              }}
-                            />
-                          )}
-                          <div className="flex flex-col" style={{ gap: CELL_GAP }}>
-                            {week.map((day, dayIdx) => {
-                              if (!showWeekends && dayIdx >= 5) return null;
-                              return (
-                                <div
-                                  key={dayIdx}
-                                  className={`rounded-sm cursor-pointer transition-all duration-150 ${day.isToday ? 'today-cell' : ''}`}
-                                  style={{
-                                    width: CELL_SIZE,
-                                    height: CELL_SIZE,
-                                    background: getBackground(day),
-                                    opacity: day.isInYear ? 1 : 0,
-                                    boxShadow: !day.isToday && selectedSprint && day.sprint?.sprint === selectedSprint
-                                        && day.dayOfWeek !== 0 && day.dayOfWeek !== 6
-                                        && !isDayFullHoliday(day)
-                                      ? '0 0 0 1px var(--text)'
-                                      : 'none',
-                                  }}
-                                  onMouseEnter={() => setHoveredDay(day)}
-                                  onMouseLeave={() => setHoveredDay(null)}
-                                  onClick={() => {
-                                    if (day.sprint) {
-                                      setSelectedSprint(selectedSprint === day.sprint.sprint ? null : day.sprint.sprint);
-                                    }
-                                  }}
-                                />
-                              );
-                            })}
-                          </div>
-                        </Fragment>
-                      );
-                    })}
+                        {/* Weeks grid */}
+                        <div className="flex" style={{ gap: CELL_GAP }}>
+                          {weeks.map((week, weekIdx) => {
+                            return (
+                              <Fragment key={weekIdx}>
+                                <div className="flex flex-col" style={{ gap: CELL_GAP }}>
+                                  {week.map((day, dayIdx) => {
+                                    if (!showWeekends && dayIdx >= 5) return null;
+                                    return (
+                                      <div
+                                        key={dayIdx}
+                                        className={`rounded-sm cursor-pointer transition-all duration-150 ${day.isToday ? 'today-cell' : ''}`}
+                                        style={{
+                                          width: CELL_SIZE,
+                                          height: CELL_SIZE,
+                                          background: getBackground(day),
+                                          opacity: day.isInYear ? 1 : 0,
+                                          boxShadow: !day.isToday && selectedSprint && day.sprint?.sprint === selectedSprint
+                                              && day.dayOfWeek !== 0 && day.dayOfWeek !== 6
+                                              && !isDayFullHoliday(day)
+                                            ? '0 0 0 1px var(--text-muted)'
+                                            : 'none',
+                                        }}
+                                        onMouseEnter={() => setHoveredDay(day)}
+                                        onMouseLeave={() => setHoveredDay(null)}
+                                        onClick={() => {
+                                          if (day.sprint) {
+                                            setSelectedSprint(selectedSprint === day.sprint.sprint ? null : day.sprint.sprint);
+                                          }
+                                        }}
+                                      />
+                                    );
+                                  })}
+                                </div>
+                              </Fragment>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -684,7 +710,12 @@
             {hoveredDay && hoveredDay.isInYear && (
               <div
                 className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-3 shadow-xl z-50"
-                style={{ backgroundColor: 'var(--bg)', border: '1px solid var(--card-border)' }}
+                style={{
+                  backgroundColor: 'var(--calendar-bg)',
+                  border: '1px solid var(--card-border)',
+                  minWidth: '240px',
+                  minHeight: '120px'
+                }}
               >
                 <div className="font-medium">{formatDate(hoveredDay.date)}</div>
                 {hoveredDay.sprint ? (
@@ -701,26 +732,22 @@
                 {hoveredDay.isToday && (
                   <div className="text-xs mt-1" style={{ color: quarterColors.Q3.shades[3] }}>← Today</div>
                 )}
-                {selectedOffices.length > 0 && hoveredDay.dayOfWeek !== 0 && hoveredDay.dayOfWeek !== 6 && (() => {
-                  const holidays = holidayMap[hoveredDay.dateStr];
-                  const hasAnyHoliday = holidays && selectedOffices.some(o => holidays[o]);
-                  if (!hasAnyHoliday) return null;
-                  return (
-                    <div className="mt-1.5 text-xs" style={{ borderTop: '1px solid var(--card-border)', paddingTop: '6px' }}>
-                      {selectedOffices.map(office => {
-                        const isHoliday = holidays && holidays[office];
-                        return (
-                          <div key={office} className="flex justify-between gap-4" style={{ lineHeight: '1.7' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>{officeFlags[office]} {officeLabels[office]}</span>
-                            <span style={{ color: isHoliday ? 'var(--text-dim)' : 'var(--text-muted)' }}>
-                              {isHoliday ? 'Holiday' : 'Working'}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  );
-                })()}
+                {hoveredDay.dayOfWeek !== 0 && hoveredDay.dayOfWeek !== 6 && (
+                  <div className="mt-1.5 text-xs" style={{ borderTop: '1px solid var(--card-border)', paddingTop: '6px' }}>
+                    {allOffices.map(office => {
+                      const holidays = holidayMap[hoveredDay.dateStr];
+                      const isHoliday = holidays && holidays[office];
+                      return (
+                        <div key={office} className="flex justify-between gap-4" style={{ lineHeight: '1.7' }}>
+                          <span style={{ color: 'var(--text-muted)' }}>{officeFlags[office]} {officeLabels[office]}</span>
+                          <span style={{ color: isHoliday ? 'var(--text-dim)' : 'var(--text-muted)' }}>
+                            {isHoliday ? 'Holiday' : 'Working'}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             )}
             
@@ -730,7 +757,7 @@
                 <div
                   key={quarter}
                   className="rounded-lg p-3"
-                  style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
+                  style={{ backgroundColor: 'var(--calendar-bg)', border: '1px solid var(--card-border)' }}
                 >
                   <h3
                     className="font-bold mb-2 pb-2 text-sm"
