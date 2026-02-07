@@ -26,6 +26,7 @@
       --ring-offset: #1F1F21;
       --non-sprint-bg: rgba(255,255,255,0.15);
       --weekend-bg: rgba(255,255,255,0.08);
+      --past-day-bg: #3D3D3D;
     }
 
     /* Light theme matches Confluence light: #FFF */
@@ -41,6 +42,7 @@
       --ring-offset: #FFFFFF;
       --non-sprint-bg: rgba(0,0,0,0.12);
       --weekend-bg: rgba(0,0,0,0.06);
+      --past-day-bg: #D0D0D0;
     }
 
     /* Today's date highlight */
@@ -350,12 +352,21 @@
 
         const colors = quarterColors[day.sprint.quarter];
 
+        // Check if day is in the past (before today)
+        const isPast = day.date < today && !day.isToday;
+
+        // Past days should be dark grey
+        if (isPast) return "var(--past-day-bg)";
+
         // Determine the base sprint color for this day
         let sprintColor;
         if (day.isToday) {
           sprintColor = colors.current;
         } else if (selectedSprint && day.sprint.sprint === selectedSprint) {
-          sprintColor = colors.current;
+          // Use a lighter shade for selected sprint (shade 4 instead of current/900)
+          const quarterSprints = sprintData.filter(s => s.quarter === day.sprint.quarter);
+          const sprintIdx = quarterSprints.findIndex(s => s.sprint === day.sprint.sprint);
+          sprintColor = colors.shades[Math.min(4, sprintIdx)] || colors.shades[4];
         } else {
           const quarterSprints = sprintData.filter(s => s.quarter === day.sprint.quarter);
           const sprintIdx = quarterSprints.findIndex(s => s.sprint === day.sprint.sprint);
@@ -489,6 +500,13 @@
                   <span style={{ color: 'var(--text-muted)' }}>{val.full}</span>
                 </div>
               ))}
+              <div className="flex items-center gap-2">
+                <div
+                  className="rounded-sm"
+                  style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: 'var(--past-day-bg)' }}
+                />
+                <span style={{ color: 'var(--text-muted)' }}>Past Days</span>
+              </div>
               <div className="flex items-center gap-2">
                 <div
                   className="rounded-sm"
