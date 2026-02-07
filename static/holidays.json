@@ -1,0 +1,4782 @@
+[
+  {
+    "Date": "2026-01-01",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-02",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-03",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-04",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-06",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-07",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-10",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-11",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S1"
+  },
+  {
+    "Date": "2026-01-17",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-18",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-01-19",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-24",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-25",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S2"
+  },
+  {
+    "Date": "2026-01-31",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-02-01",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-02-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-07",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-08",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S3"
+  },
+  {
+    "Date": "2026-02-14",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-02-15",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-02-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-21",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-22",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-23",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S4"
+  },
+  {
+    "Date": "2026-02-28",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-01",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-03",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-07",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-08",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S5"
+  },
+  {
+    "Date": "2026-03-14",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-15",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-21",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-22",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-25",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q1S6"
+  },
+  {
+    "Date": "2026-03-28",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-29",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-03-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-03-31",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-01",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-02",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-03",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-04",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-05",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-09",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-10",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S1"
+  },
+  {
+    "Date": "2026-04-11",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-04-12",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-04-13",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-14",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-18",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-19",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S2"
+  },
+  {
+    "Date": "2026-04-25",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-04-26",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-04-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-04-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-04-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-04-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-01",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-02",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-03",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S3"
+  },
+  {
+    "Date": "2026-05-09",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-05-10",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-05-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-12",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-16",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-17",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S4"
+  },
+  {
+    "Date": "2026-05-23",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-05-24",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-05-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-26",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-30",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-05-31",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-01",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S5"
+  },
+  {
+    "Date": "2026-06-06",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-06-07",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-06-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-13",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-14",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S6"
+  },
+  {
+    "Date": "2026-06-20",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-06-21",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-06-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-27",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-28",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-06-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-07-01",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-07-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-07-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q2S7"
+  },
+  {
+    "Date": "2026-07-04",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-07-05",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-07-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-11",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-12",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S1"
+  },
+  {
+    "Date": "2026-07-18",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-07-19",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-07-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-25",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-26",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-07-31",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S2"
+  },
+  {
+    "Date": "2026-08-01",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-02",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-08",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-09",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S3"
+  },
+  {
+    "Date": "2026-08-15",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-16",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-19",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-22",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-23",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-28",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S4"
+  },
+  {
+    "Date": "2026-08-29",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-30",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-08-31",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-01",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-05",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-06",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-08",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S5"
+  },
+  {
+    "Date": "2026-09-12",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-09-13",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-09-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-19",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-20",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q3S6"
+  },
+  {
+    "Date": "2026-09-26",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-09-27",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-09-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-09-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-09-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-01",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-03",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-04",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-07",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-08",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S1"
+  },
+  {
+    "Date": "2026-10-10",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-10-11",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-10-12",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-14",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-17",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-18",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S2"
+  },
+  {
+    "Date": "2026-10-24",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-10-25",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-10-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-10-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-10-28",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-10-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-10-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-10-31",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-01",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-02",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-05",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-06",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S3"
+  },
+  {
+    "Date": "2026-11-07",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-11-08",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-11-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-12",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-13",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-14",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-15",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-19",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-20",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S4"
+  },
+  {
+    "Date": "2026-11-21",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-11-22",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-11-23",
+    "CY": null,
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-24",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-25",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-26",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-27",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-28",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-29",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-11-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-12-01",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-12-02",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-12-03",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-12-04",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S5"
+  },
+  {
+    "Date": "2026-12-05",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-12-06",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-12-07",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-08",
+    "CY": null,
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-09",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-10",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-11",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-12",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-13",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-14",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-15",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-16",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-17",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-18",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S6"
+  },
+  {
+    "Date": "2026-12-19",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-12-20",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": null
+  },
+  {
+    "Date": "2026-12-21",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-22",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-23",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-24",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-25",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": null,
+    "ES": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-26",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-27",
+    "CY": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GE": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "ES": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "GB": {
+      "value": null,
+      "color": "Teal",
+      "background": "#b3f5ff"
+    },
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-28",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-29",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-30",
+    "CY": null,
+    "GE": null,
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  },
+  {
+    "Date": "2026-12-31",
+    "CY": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "GE": {
+      "value": null,
+      "color": "Red",
+      "background": "#ffbdad"
+    },
+    "ES": null,
+    "GB": null,
+    "Sprint number": "26Q4S7"
+  }
+]
