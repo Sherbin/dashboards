@@ -84,37 +84,38 @@
       { sprint: "26Q4S7", start: "2026-12-21", end: "2026-12-31", quarter: "Q4" },
     ];
 
+    // 7 shades per quarter from palette-colors.json (levels 200→800), light→dark
     const quarterColors = {
       Q1: {
-        months: ["#5B9CF6", "#3179F5", "#2962FF"],
-        current: "#1E53E5",
+        shades: ["#90BFF9", "#5B9CF6", "#3179F5", "#2962FF", "#1E53E5", "#1848CC", "#143EB2"],
+        current: "#0C3299",
         border: "#143EB2",
         label: "Q1",
         full: "Q1"
       },
       Q2: {
-        months: ["#42BD7F", "#22AB67", "#089950"],
-        current: "#068043",
-        border: "#056636",
+        shades: ["#70CC9E", "#42BD7F", "#22AB67", "#089950", "#068043", "#056636", "#004D27"],
+        current: "#1A3326",
+        border: "#004D27",
         label: "Q2",
         full: "Q2"
       },
       Q3: {
-        months: ["#FFA726", "#FF9800", "#FB8C00"],
-        current: "#F57C00",
-        border: "#E65100",
+        shades: ["#FFCC80", "#ffb74d", "#FFA726", "#FF9800", "#FB8C00", "#F57C00", "#EF6C00"],
+        current: "#e65100",
+        border: "#F57C00",
         label: "Q3",
         full: "Q3"
       },
       Q4: {
-        months: ["#f06292", "#ec407a", "#e91e63"],
-        current: "#D81B60",
+        shades: ["#f48fb1", "#f06292", "#ec407a", "#e91e63", "#D81B60", "#C2185B", "#AD1457"],
+        current: "#880E4F",
         border: "#AD1457",
         label: "Q4",
         full: "Q4"
       },
       none: {
-        months: ["#4A4A4A"],
+        shades: ["#4A4A4A"],
         current: "#3D3D3D",
         border: "#2E2E2E",
         label: "",
@@ -122,22 +123,99 @@
       }
     };
 
-    const monthToQuarterPosition = {
-      0: 0, 1: 1, 2: 2,
-      3: 0, 4: 1, 5: 2,
-      6: 0, 7: 1, 8: 2,
-      9: 0, 10: 1, 11: 2
+    // Public holidays by office (only "Red" days from holidays.json)
+    // CY = Cyprus (Limassol), GE = Georgia (Tbilisi), ES = Spain (Malaga), GB = Great Britain (London)
+    const holidayMap = {
+      "2026-01-01": { CY: true, GE: true, ES: true, GB: true },
+      "2026-01-02": { GE: true },
+      "2026-01-06": { CY: true, ES: true },
+      "2026-01-07": { GE: true },
+      "2026-01-19": { GE: true },
+      "2026-02-23": { CY: true },
+      "2026-02-28": { ES: true },
+      "2026-03-03": { GE: true },
+      "2026-03-08": { GE: true },
+      "2026-03-25": { CY: true },
+      "2026-04-01": { CY: true },
+      "2026-04-02": { ES: true },
+      "2026-04-03": { ES: true, GB: true },
+      "2026-04-06": { GB: true },
+      "2026-04-09": { GE: true },
+      "2026-04-10": { CY: true, GE: true },
+      "2026-04-13": { CY: true, GE: true },
+      "2026-04-14": { CY: true },
+      "2026-05-01": { CY: true, ES: true },
+      "2026-05-04": { GB: true },
+      "2026-05-09": { GE: true },
+      "2026-05-12": { GE: true },
+      "2026-05-25": { GB: true },
+      "2026-05-26": { GE: true },
+      "2026-06-01": { CY: true },
+      "2026-06-21": { GE: true },
+      "2026-08-15": { CY: true, ES: true },
+      "2026-08-19": { ES: true },
+      "2026-08-28": { GE: true },
+      "2026-08-31": { GB: true },
+      "2026-09-08": { ES: true },
+      "2026-10-01": { CY: true },
+      "2026-10-12": { ES: true },
+      "2026-10-14": { GE: true },
+      "2026-10-28": { CY: true },
+      "2026-11-01": { ES: true },
+      "2026-11-02": { ES: true },
+      "2026-11-23": { GE: true },
+      "2026-12-06": { ES: true },
+      "2026-12-07": { ES: true },
+      "2026-12-08": { ES: true },
+      "2026-12-24": { CY: true },
+      "2026-12-25": { CY: true, ES: true, GB: true },
+      "2026-12-26": { CY: true },
+      "2026-12-28": { GB: true },
+      "2026-12-31": { CY: true, GE: true },
     };
+
+    const allOffices = ["CY", "ES", "GB", "GE"];
+    const officeLabels = { CY: "CY", GE: "GE", ES: "ES", GB: "GB" };
+    const officeFlags = { CY: "\u{1F1E8}\u{1F1FE}", GE: "\u{1F1EC}\u{1F1EA}", ES: "\u{1F1EA}\u{1F1F8}", GB: "\u{1F1EC}\u{1F1E7}" };
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
+    const CELL_SIZE = 16;  // px per cell (was 12)
+    const CELL_GAP = 2;    // px gap between cells (Tailwind gap-0.5)
+    const CELL_STEP = CELL_SIZE + CELL_GAP; // 18px per column/row step
+
+    function countWorkingDays(startDate, endDate) {
+      let count = 0;
+      const d = new Date(startDate);
+      while (d <= endDate) {
+        const dow = d.getUTCDay();
+        if (dow !== 0 && dow !== 6) count++;
+        d.setUTCDate(d.getUTCDate() + 1);
+      }
+      return count;
+    }
+
     function SprintHeatmap() {
       const [hoveredDay, setHoveredDay] = useState(null);
       const [selectedSprint, setSelectedSprint] = useState(null);
+      const [selectedOffices, setSelectedOffices] = useState([]);
+
+      const toggleOffice = (office) => {
+        setSelectedOffices(prev => {
+          const next = prev.includes(office) ? prev.filter(o => o !== office) : [...prev, office];
+          return allOffices.filter(o => next.includes(o)); // preserve alphabetical order
+        });
+      };
       
       // Use real today's date
       const today = useMemo(() => new Date(), []);
+
+      // Show weekend rows only if today is Saturday or Sunday
+      const showWeekends = useMemo(() => {
+        const dow = today.getDay();
+        return dow === 0 || dow === 6;
+      }, [today]);
       
       const [theme, setTheme] = useState(() => {
         if (typeof window !== 'undefined' && window.matchMedia) {
@@ -200,6 +278,10 @@
           const daysPassed = Math.ceil((today - quarterStart) / (1000 * 60 * 60 * 24));
           const daysLeft = Math.ceil((quarterEnd - today) / (1000 * 60 * 60 * 24));
           
+          const totalWorkingDays = countWorkingDays(quarterStart, quarterEnd);
+          const workingDaysPassed = countWorkingDays(quarterStart, today < quarterEnd ? today : quarterEnd);
+          const workingDaysLeft = countWorkingDays(today, quarterEnd);
+
           quarterProgress = {
             quarter: q,
             currentSprintNum: currentIdx + 1,
@@ -207,6 +289,9 @@
             daysPassed: Math.max(0, daysPassed),
             daysLeft: Math.max(0, daysLeft),
             totalDays,
+            totalWorkingDays,
+            workingDaysPassed: Math.max(0, workingDaysPassed),
+            workingDaysLeft: Math.max(0, workingDaysLeft),
             percentage: Math.min(100, Math.max(0, (daysPassed / totalDays) * 100))
           };
         }
@@ -242,8 +327,19 @@
         
         return { weeks, currentSprint, quarterProgress };
       }, [today]);
-      
-      const getDayColor = (day) => {
+
+      // Find the day object for "today" — used as fallback for the selector legend
+      const todayDay = useMemo(() => {
+        for (const week of weeks) {
+          for (const day of week) {
+            if (day.isToday) return day;
+          }
+        }
+        return null;
+      }, [weeks]);
+
+      // Returns a CSS background value (solid color or linear-gradient for holiday stripes)
+      const getBackground = (day) => {
         if (!day.isInYear) return "transparent";
 
         // Weekends (Sat=6, Sun=0) are always grey — non-working days
@@ -253,13 +349,54 @@
         if (!day.sprint) return "var(--non-sprint-bg)";
 
         const colors = quarterColors[day.sprint.quarter];
-        if (day.isToday) return colors.current;
-        if (selectedSprint && day.sprint.sprint === selectedSprint) return colors.current;
 
-        // Use sprint start month for color so all days in a sprint have the same shade
-        const sprintStartMonth = new Date(day.sprint.start + 'T00:00:00Z').getUTCMonth();
-        const monthPos = monthToQuarterPosition[sprintStartMonth];
-        return colors.months[monthPos] || colors.months[0];
+        // Determine the base sprint color for this day
+        let sprintColor;
+        if (day.isToday) {
+          sprintColor = colors.current;
+        } else if (selectedSprint && day.sprint.sprint === selectedSprint) {
+          sprintColor = colors.current;
+        } else {
+          const quarterSprints = sprintData.filter(s => s.quarter === day.sprint.quarter);
+          const sprintIdx = quarterSprints.findIndex(s => s.sprint === day.sprint.sprint);
+          sprintColor = colors.shades[sprintIdx] || colors.shades[0];
+        }
+
+        // If no offices selected, return solid sprint color (no holiday overlay)
+        if (selectedOffices.length === 0) return sprintColor;
+
+        // Check holidays for selected offices
+        const holidays = holidayMap[day.dateStr];
+        const stripes = selectedOffices.map(office => {
+          const isHoliday = holidays && holidays[office];
+          return isHoliday ? 'var(--weekend-bg)' : sprintColor;
+        });
+
+        // If all stripes are the same color, return solid
+        if (stripes.every(s => s === stripes[0])) return stripes[0];
+
+        // Build horizontal gradient with N equal stripes
+        const pct = 100 / stripes.length;
+        const stops = stripes.map((color, i) =>
+          `${color} ${(i * pct).toFixed(1)}% ${((i + 1) * pct).toFixed(1)}%`
+        );
+        return `linear-gradient(to bottom, ${stops.join(', ')})`;
+      };
+
+      // Helper: check if a day is a holiday for any selected office
+      const isDayHoliday = (day) => {
+        if (selectedOffices.length === 0) return false;
+        const holidays = holidayMap[day.dateStr];
+        if (!holidays) return false;
+        return selectedOffices.some(office => holidays[office]);
+      };
+
+      // Helper: check if a day is a holiday for ALL selected offices
+      const isDayFullHoliday = (day) => {
+        if (selectedOffices.length === 0) return false;
+        const holidays = holidayMap[day.dateStr];
+        if (!holidays) return false;
+        return selectedOffices.every(office => holidays[office]);
       };
       
       const getWeekSprintStart = (week) => {
@@ -305,7 +442,7 @@
 
                   <div>
                     <div className="text-xs mb-1" style={{ color: 'var(--text-muted)' }}>Current Sprint</div>
-                    <div className="text-lg font-bold" style={{ color: quarterColors[currentSprint.quarter].months[1] }}>
+                    <div className="text-lg font-bold" style={{ color: quarterColors[currentSprint.quarter].shades[3] }}>
                       {currentSprint.sprint}
                     </div>
                   </div>
@@ -320,13 +457,16 @@
                         className="h-full rounded-full transition-all duration-500"
                         style={{
                           width: `${quarterProgress.percentage}%`,
-                          backgroundColor: quarterColors[quarterProgress.quarter].months[1]
+                          backgroundColor: quarterColors[quarterProgress.quarter].shades[3]
                         }}
                       />
                     </div>
                     <div className="flex justify-between text-xs mt-1" style={{ color: 'var(--text-dim)' }}>
                       <span>Sprint {quarterProgress.currentSprintNum} of {quarterProgress.totalSprints}</span>
-                      <span>{quarterProgress.daysLeft} days left</span>
+                      <span
+                        title={`Calendar: ${quarterProgress.daysPassed} of ${quarterProgress.totalDays} days (${quarterProgress.daysLeft} left)\nWorking: ${quarterProgress.workingDaysPassed} of ${quarterProgress.totalWorkingDays} days (${quarterProgress.workingDaysLeft} left)`}
+                        style={{ cursor: 'help', borderBottom: '1px dotted var(--text-dim)' }}
+                      >{quarterProgress.daysLeft} days left</span>
                     </div>
                   </div>
                 </div>
@@ -334,15 +474,15 @@
             )}
             
             {/* Legend */}
-            <div className="flex flex-wrap gap-4 mb-4 text-sm">
+            <div className="flex flex-wrap gap-4 mb-4 text-sm items-center">
               {Object.entries(quarterColors).filter(([k]) => k !== 'none').map(([key, val]) => (
                 <div key={key} className="flex items-center gap-2">
                   <div className="flex gap-0.5">
-                    {val.months.map((color, i) => (
+                    {val.shades.slice(0, 3).map((color, i) => (
                       <div
                         key={i}
-                        className="w-3 h-3 rounded-sm"
-                        style={{ backgroundColor: color }}
+                        className="rounded-sm"
+                        style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: color }}
                       />
                     ))}
                   </div>
@@ -351,11 +491,12 @@
               ))}
               <div className="flex items-center gap-2">
                 <div
-                  className="w-3 h-3 rounded-sm"
-                  style={{ backgroundColor: 'var(--non-sprint-bg)' }}
+                  className="rounded-sm"
+                  style={{ width: CELL_SIZE, height: CELL_SIZE, backgroundColor: 'var(--non-sprint-bg)' }}
                 />
                 <span style={{ color: 'var(--text-muted)' }}>Out of Sprint</span>
               </div>
+
             </div>
             
             {/* Heatmap */}
@@ -363,62 +504,142 @@
               className="rounded-xl p-4 overflow-x-auto"
               style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
             >
-              <div className="flex flex-col items-center">
-                {/* Month labels */}
-                <div className="flex mb-2" style={{ marginLeft: '28px' }}>
-                  {monthLabels.map(({ month, weekIdx }, i) => {
-                    const nextWeekIdx = monthLabels[i + 1]?.weekIdx || weeks.length;
-                    const width = (nextWeekIdx - weekIdx) * 14;
-                    return (
-                      <div
-                        key={month}
-                        className="text-xs flex-shrink-0"
-                        style={{ width: `${width}px`, color: 'var(--text-muted)' }}
-                      >
-                        {months[month]}
-                      </div>
-                    );
-                  })}
+              <div className="flex flex-col">
+                {/* Top row: Holidays title | weekday spacer | month labels */}
+                <div className="flex mb-1 items-end">
+                  <div className="flex-shrink-0 mr-3" style={{ minWidth: 4 * CELL_SIZE + 3 * CELL_GAP }}>
+                    <span className="text-xs" style={{ color: 'var(--text-dim)' }}>Holidays</span>
+                  </div>
+                  <div className="flex-shrink-0 mr-2" style={{ width: 28 }} />
+                  <div className="flex">
+                    {monthLabels.map(({ month, weekIdx }, i) => {
+                      const nextWeekIdx = monthLabels[i + 1]?.weekIdx || weeks.length;
+                      const width = (nextWeekIdx - weekIdx) * CELL_STEP;
+                      return (
+                        <div
+                          key={month}
+                          className="text-xs flex-shrink-0"
+                          style={{ width: `${width}px`, color: 'var(--text-muted)' }}
+                        >
+                          {months[month]}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
 
-                {/* Grid */}
+                {/* Bottom row: selector+legend | weekday labels | heatmap grid */}
                 <div className="flex">
-                  {/* Weekday labels */}
-                  <div className="flex flex-col gap-0.5 mr-2 text-xs flex-shrink-0" style={{ color: 'var(--text-muted)' }}>
-                    {weekdays.map((day, i) => (
-                      <div key={day} className="h-3 flex items-center justify-end pr-1" style={{ width: '24px' }}>
-                        {i % 2 === 0 ? day : ''}
+                  {/* Office selector cell — square cell, stripes reflect holiday status of hovered/today day */}
+                  {(() => {
+                    const selectorSize = 4 * CELL_SIZE + 3 * CELL_GAP; // 70px square
+                    // Reference day: hovered day > today
+                    const refDay = (hoveredDay && hoveredDay.isInYear) ? hoveredDay : todayDay;
+                    // Sprint color from reference day's sprint
+                    const refSprint = refDay?.sprint
+                      || (selectedSprint ? sprintData.find(s => s.sprint === selectedSprint) : null)
+                      || currentSprint;
+                    const selectorQuarter = refSprint?.quarter || 'Q1';
+                    const selectorColors = quarterColors[selectorQuarter];
+                    const selectorSprintIdx = refSprint
+                      ? sprintData.filter(s => s.quarter === selectorQuarter).findIndex(s => s.sprint === refSprint.sprint)
+                      : 3;
+                    const selectorColor = selectorColors.shades[selectorSprintIdx >= 0 ? selectorSprintIdx : 3] || selectorColors.shades[3];
+                    // Per-office stripe color based on holiday status of refDay
+                    const getStripeColor = (office) => {
+                      if (!refDay || !refDay.sprint || refDay.dayOfWeek === 0 || refDay.dayOfWeek === 6) {
+                        return 'var(--weekend-bg)';
+                      }
+                      const holidays = holidayMap[refDay.dateStr];
+                      const isHoliday = holidays && holidays[office];
+                      return isHoliday ? 'var(--weekend-bg)' : selectorColor;
+                    };
+                    return (
+                      <div className="flex-shrink-0 mr-3 flex items-start" style={{ minWidth: selectorSize }}>
+                        <div className="rounded flex flex-col cursor-pointer" style={{
+                          width: selectorSize,
+                          height: selectorSize,
+                          overflow: 'hidden',
+                          border: '1px solid var(--card-border)',
+                          gap: CELL_GAP,
+                        }}>
+                          {allOffices.map(office => {
+                            const isActive = selectedOffices.includes(office);
+                            const stripeColor = getStripeColor(office);
+                            const isSprintColored = isActive && stripeColor !== 'var(--weekend-bg)';
+                            return (
+                              <div
+                                key={office}
+                                className="flex items-center justify-center transition-all duration-150"
+                                style={{
+                                  flex: 1,
+                                  background: isActive ? stripeColor : 'var(--hover-bg)',
+                                  opacity: isActive ? 1 : 0.35,
+                                }}
+                                onClick={() => toggleOffice(office)}
+                              >
+                                <span style={{
+                                  fontSize: '9px',
+                                  lineHeight: 1,
+                                  color: isSprintColored ? '#fff' : 'var(--text-muted)',
+                                  textShadow: isSprintColored ? '0 0 2px rgba(0,0,0,0.6)' : 'none',
+                                  userSelect: 'none',
+                                }}>
+                                  {officeFlags[office]} {officeLabels[office]}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                    ))}
+                    );
+                  })()}
+
+                  {/* Weekday labels */}
+                  <div className="flex flex-col mr-2 text-xs flex-shrink-0" style={{ color: 'var(--text-muted)', gap: CELL_GAP }}>
+                    {weekdays.map((day, i) => {
+                      if (!showWeekends && i >= 5) return null;
+                      return (
+                        <div key={day} className="flex items-center justify-end pr-1" style={{ height: CELL_SIZE, width: 28 }}>
+                          {day}
+                        </div>
+                      );
+                    })}
                   </div>
-                  
+
                   {/* Weeks grid */}
-                  <div className="flex gap-0.5">
+                  <div className="flex" style={{ gap: CELL_GAP }}>
                     {weeks.map((week, weekIdx) => {
                       const sprintStart = getWeekSprintStart(week);
                       return (
                         <Fragment key={weekIdx}>
                           {sprintStart && (
-                            <div 
-                              className="w-px my-0.5"
-                              style={{ 
-                                backgroundColor: quarterColors[sprintStart.quarter].months[1],
+                            <div
+                              className="w-px"
+                              style={{
+                                backgroundColor: quarterColors[sprintStart.quarter].border,
                                 opacity: 0.4,
-                                minHeight: '100%'
+                                minHeight: '100%',
+                                marginTop: 1,
+                                marginBottom: 1,
                               }}
                             />
                           )}
-                          <div className="flex flex-col gap-0.5">
+                          <div className="flex flex-col" style={{ gap: CELL_GAP }}>
                             {week.map((day, dayIdx) => {
+                              if (!showWeekends && dayIdx >= 5) return null;
                               return (
                                 <div
                                   key={dayIdx}
-                                  className={`w-3 h-3 rounded-sm cursor-pointer transition-all duration-150 ${day.isToday ? 'today-cell' : ''}`}
+                                  className={`rounded-sm cursor-pointer transition-all duration-150 ${day.isToday ? 'today-cell' : ''}`}
                                   style={{
-                                    backgroundColor: getDayColor(day),
+                                    width: CELL_SIZE,
+                                    height: CELL_SIZE,
+                                    background: getBackground(day),
                                     opacity: day.isInYear ? 1 : 0,
                                     boxShadow: !day.isToday && selectedSprint && day.sprint?.sprint === selectedSprint
                                         && day.dayOfWeek !== 0 && day.dayOfWeek !== 6
+                                        && !isDayFullHoliday(day)
                                       ? '0 0 0 1px var(--text)'
                                       : 'none',
                                   }}
@@ -449,15 +670,39 @@
               >
                 <div className="font-medium">{formatDate(hoveredDay.date)}</div>
                 {hoveredDay.sprint ? (
-                  <div className="text-sm" style={{ color: quarterColors[hoveredDay.sprint.quarter].months[1] }}>
+                  <div className="text-sm" style={{ color: (() => {
+                    const qc = quarterColors[hoveredDay.sprint.quarter];
+                    const idx = sprintData.filter(s => s.quarter === hoveredDay.sprint.quarter).findIndex(s => s.sprint === hoveredDay.sprint.sprint);
+                    return qc.shades[idx >= 0 ? idx : 3];
+                  })() }}>
                     {hoveredDay.sprint.sprint} • {weekdays[hoveredDay.dayOfWeek === 0 ? 6 : hoveredDay.dayOfWeek - 1]}
                   </div>
                 ) : (
                   <div className="text-sm" style={{ color: 'var(--text-muted)' }}>Out of Sprint</div>
                 )}
                 {hoveredDay.isToday && (
-                  <div className="text-xs mt-1" style={{ color: quarterColors.Q3.months[1] }}>← Today</div>
+                  <div className="text-xs mt-1" style={{ color: quarterColors.Q3.shades[3] }}>← Today</div>
                 )}
+                {selectedOffices.length > 0 && hoveredDay.dayOfWeek !== 0 && hoveredDay.dayOfWeek !== 6 && (() => {
+                  const holidays = holidayMap[hoveredDay.dateStr];
+                  const hasAnyHoliday = holidays && selectedOffices.some(o => holidays[o]);
+                  if (!hasAnyHoliday) return null;
+                  return (
+                    <div className="mt-1.5 text-xs" style={{ borderTop: '1px solid var(--card-border)', paddingTop: '6px' }}>
+                      {selectedOffices.map(office => {
+                        const isHoliday = holidays && holidays[office];
+                        return (
+                          <div key={office} className="flex justify-between gap-4" style={{ lineHeight: '1.7' }}>
+                            <span style={{ color: 'var(--text-muted)' }}>{officeFlags[office]} {officeLabels[office]}</span>
+                            <span style={{ color: isHoliday ? 'var(--text-dim)' : 'var(--text-muted)' }}>
+                              {isHoliday ? 'Holiday' : 'Working'}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
             )}
             
@@ -471,7 +716,7 @@
                 >
                   <h3
                     className="font-bold mb-2 pb-2 text-sm"
-                    style={{ color: quarterColors[quarter].months[1], borderBottom: '1px solid var(--card-border)' }}
+                    style={{ color: quarterColors[quarter].shades[3], borderBottom: '1px solid var(--card-border)' }}
                   >
                     {quarterColors[quarter].full}
                   </h3>
