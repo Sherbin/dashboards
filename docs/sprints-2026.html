@@ -25,6 +25,7 @@
       --progress-bg: rgba(255,255,255,0.1);
       --ring-offset: #1F1F21;
       --non-sprint-bg: rgba(255,255,255,0.15);
+      --weekend-bg: rgba(255,255,255,0.08);
     }
 
     /* Light theme matches Confluence light: #FFF */
@@ -39,6 +40,7 @@
       --progress-bg: rgba(0,0,0,0.08);
       --ring-offset: #FFFFFF;
       --non-sprint-bg: rgba(0,0,0,0.12);
+      --weekend-bg: rgba(0,0,0,0.06);
     }
 
     /* Today's date highlight */
@@ -243,13 +245,20 @@
       
       const getDayColor = (day) => {
         if (!day.isInYear) return "transparent";
+
+        // Weekends (Sat=6, Sun=0) are always grey — non-working days
+        const dow = day.dayOfWeek;
+        if (dow === 0 || dow === 6) return "var(--weekend-bg)";
+
         if (!day.sprint) return "var(--non-sprint-bg)";
-        
+
         const colors = quarterColors[day.sprint.quarter];
         if (day.isToday) return colors.current;
         if (selectedSprint && day.sprint.sprint === selectedSprint) return colors.current;
-        
-        const monthPos = monthToQuarterPosition[day.month];
+
+        // Use sprint start month for color so all days in a sprint have the same shade
+        const sprintStartMonth = new Date(day.sprint.start + 'T00:00:00Z').getUTCMonth();
+        const monthPos = monthToQuarterPosition[sprintStartMonth];
         return colors.months[monthPos] || colors.months[0];
       };
       
