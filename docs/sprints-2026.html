@@ -418,6 +418,7 @@
                                     backgroundColor: getDayColor(day),
                                     opacity: day.isInYear ? 1 : 0,
                                     boxShadow: !day.isToday && selectedSprint && day.sprint?.sprint === selectedSprint
+                                        && day.dayOfWeek !== 0 && day.dayOfWeek !== 6
                                       ? '0 0 0 1px var(--text)'
                                       : 'none',
                                   }}
@@ -444,7 +445,7 @@
             {hoveredDay && hoveredDay.isInYear && (
               <div
                 className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-3 shadow-xl z-50"
-                style={{ backgroundColor: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
+                style={{ backgroundColor: 'var(--bg)', border: '1px solid var(--card-border)' }}
               >
                 <div className="font-medium">{formatDate(hoveredDay.date)}</div>
                 {hoveredDay.sprint ? (
