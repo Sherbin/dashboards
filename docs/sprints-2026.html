@@ -577,15 +577,17 @@
                               let backgroundColor;
                               let textColor;
                               let textShadow = 'none';
+                              let borderStyle = 'none';
 
                               if (!isActive) {
-                                // Невыбранный — светло-серый
+                                // Невыбранный — светло-серый, тусклый текст
                                 backgroundColor = 'var(--weekend-bg)';
-                                textColor = 'var(--text-muted)';
+                                textColor = 'var(--text-dim)';
                               } else if (stripeColor === 'var(--weekend-bg)') {
-                                // Выбранный но нерабочий (holiday/weekend) — темно-серый
+                                // Выбранный но нерабочий (holiday/weekend) — темно-серый с тонкой рамкой
                                 backgroundColor = 'var(--past-day-bg)';
                                 textColor = 'var(--text-muted)';
+                                borderStyle = 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)';
                               } else {
                                 // Выбранный и рабочий — цвет спринта
                                 backgroundColor = stripeColor;
@@ -601,7 +603,8 @@
                                     flex: 1,
                                     background: backgroundColor,
                                     opacity: 1,
-                                    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
+                                    boxShadow: borderStyle,
+                                    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                                   }}
                                   onClick={() => toggleOffice(office)}
                                 >
