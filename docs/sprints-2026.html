@@ -411,7 +411,26 @@
         if (!holidays) return false;
         return selectedOffices.every(office => holidays[office]);
       };
-      
+
+      // Helper: get the base sprint color for a day (used for inset shadows)
+      const getSprintColor = (day) => {
+        if (!day.sprint) return null;
+
+        const colors = quarterColors[day.sprint.quarter];
+
+        if (day.isToday) {
+          return colors.current;
+        } else if (selectedSprint && day.sprint.sprint === selectedSprint) {
+          const quarterSprints = sprintData.filter(s => s.quarter === day.sprint.quarter);
+          const sprintIdx = quarterSprints.findIndex(s => s.sprint === day.sprint.sprint);
+          return colors.shades[Math.min(4, sprintIdx)] || colors.shades[4];
+        } else {
+          const quarterSprints = sprintData.filter(s => s.quarter === day.sprint.quarter);
+          const sprintIdx = quarterSprints.findIndex(s => s.sprint === day.sprint.sprint);
+          return colors.shades[sprintIdx] || colors.shades[0];
+        }
+      };
+
       const getWeekSprintStart = (week) => {
         for (const day of week) {
           if (day.isInYear && day.sprint && day.dateStr === day.sprint.start) {
@@ -529,9 +548,11 @@
                   {/* Office selector - sticky on left */}
                   <div style={{
                     position: 'sticky',
-                    left: '16px',
+                    left: '-16px',
                     zIndex: 10,
+                    paddingLeft: '16px',
                     paddingRight: '24px',
+                    marginLeft: 0,
                     alignSelf: 'stretch',
                     background: 'linear-gradient(to right, var(--calendar-bg) 0%, var(--calendar-bg) 85%, transparent 100%)'
                   }}>
@@ -558,6 +579,16 @@
                         const isHoliday = holidays && holidays[office];
                         return isHoliday ? 'var(--weekend-bg)' : selectorColor;
                       };
+                      // Check if any selected office has a holiday on refDay (for container box-shadow)
+                      // Box-shadow should show when: working day sprint (not weekend, not past) and at least one selected office has holiday
+                      const hasSelectedHoliday = refDay && refDay.sprint && refDay.dayOfWeek !== 0 && refDay.dayOfWeek !== 6
+                        && selectedOffices.some(office => {
+                          const holidays = holidayMap[refDay.dateStr];
+                          return holidays && holidays[office];
+                        });
+                      const isPastRefDay = refDay && refDay.date < today && !refDay.isToday;
+                      // Use sprint color for box-shadow (not dependent on holiday status)
+                      const showSelectorBorder = hasSelectedHoliday && !isPastRefDay;
                       return (
                         <div className="flex flex-col">
                           <div className="text-xs mb-1" style={{ color: 'var(--text-dim)', paddingLeft: 2 }}>Holidays</div>
@@ -565,9 +596,11 @@
                             width: selectorSize,
                             height: selectorSize,
                             overflow: 'hidden',
-                            border: '1px solid var(--card-border)',
+                            border: `1px solid ${selectorColor}`,
                             gap: 0,
                             backgroundColor: 'var(--calendar-bg)',
+                            boxShadow: showSelectorBorder ? `inset 0 0 0 1px ${selectorColor}` : 'none',
+                            transition: 'box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out',
                           }}>
                             {allOffices.map(office => {
                               const isActive = selectedOffices.includes(office);
@@ -577,17 +610,15 @@
                               let backgroundColor;
                               let textColor;
                               let textShadow = 'none';
-                              let borderStyle = 'none';
 
                               if (!isActive) {
                                 // Невыбранный — светло-серый, тусклый текст
                                 backgroundColor = 'var(--weekend-bg)';
                                 textColor = 'var(--text-dim)';
                               } else if (stripeColor === 'var(--weekend-bg)') {
-                                // Выбранный но нерабочий (holiday/weekend) — темно-серый с тонкой рамкой
+                                // Выбранный но нерабочий (holiday/weekend) — темно-серый
                                 backgroundColor = 'var(--past-day-bg)';
                                 textColor = 'var(--text-muted)';
-                                borderStyle = 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)';
                               } else {
                                 // Выбранный и рабочий — цвет спринта
                                 backgroundColor = stripeColor;
@@ -603,8 +634,7 @@
                                     flex: 1,
                                     background: backgroundColor,
                                     opacity: 1,
-                                    boxShadow: borderStyle,
-                                    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                                    transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
                                   }}
                                   onClick={() => toggleOffice(office)}
                                 >
@@ -681,11 +711,34 @@
                                           height: CELL_SIZE,
                                           background: getBackground(day),
                                           opacity: day.isInYear ? 1 : 0,
-                                          boxShadow: !day.isToday && selectedSprint && day.sprint?.sprint === selectedSprint
-                                              && day.dayOfWeek !== 0 && day.dayOfWeek !== 6
-                                              && !isDayFullHoliday(day)
-                                            ? '0 0 0 1px var(--text-muted)'
-                                            : 'none',
+                                          boxShadow: (() => {
+                                            const shadows = [];
+
+                                            // Selected sprint outline (existing functionality)
+                                            if (!day.isToday &&
+                                                selectedSprint &&
+                                                day.sprint?.sprint === selectedSprint &&
+                                                day.dayOfWeek !== 0 &&
+                                                day.dayOfWeek !== 6 &&
+                                                !isDayFullHoliday(day)) {
+                                              shadows.push('0 0 0 1px var(--text-muted)');
+                                            }
+
+                                            // Holiday inset shadow with sprint color (only for future/today days)
+                                            const isPast = day.date < today && !day.isToday;
+                                            if (day.sprint &&
+                                                isDayHoliday(day) &&
+                                                day.dayOfWeek !== 0 &&
+                                                day.dayOfWeek !== 6 &&
+                                                !isPast) {
+                                              const sprintColor = getSprintColor(day);
+                                              if (sprintColor) {
+                                                shadows.push(`inset 0 0 0 1px ${sprintColor}`);
+                                              }
+                                            }
+
+                                            return shadows.length > 0 ? shadows.join(', ') : 'none';
+                                          })(),
                                         }}
                                         onMouseEnter={() => setHoveredDay(day)}
                                         onMouseLeave={() => setHoveredDay(null)}
