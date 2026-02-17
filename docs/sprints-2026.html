@@ -761,8 +761,8 @@
                 </div>
               </div>
             </div>
-            
-            {/* Tooltip */}
+
+            {/* Tooltip - moved outside overflow container for true fixed positioning */}
             {hoveredDay && hoveredDay.isInYear && (
               <div
                 className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-lg px-4 py-3 shadow-xl z-50"
@@ -806,7 +806,7 @@
                 )}
               </div>
             )}
-            
+
             {/* Sprint List - 4 columns */}
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {['Q1', 'Q2', 'Q3', 'Q4'].map(quarter => (
